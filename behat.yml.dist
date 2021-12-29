@@ -1,0 +1,46 @@
+default:
+    suites:
+        domain:
+            contexts:
+                - App\Tests\Behat\Domain\CatalogContext
+                - App\Tests\Behat\Domain\TranslationContext
+                - App\Tests\Behat\Domain\SiteContentContext
+                - App\Tests\Behat\Domain\PermissionsContext
+                - App\Tests\Behat\Domain\PermissionEditingContext
+                - App\Tests\Behat\Domain\MainSiteContext
+                - App\Tests\Behat\Domain\SiteSeriesContext
+                - App\Tests\Behat\Domain\SyncContext
+                - App\Tests\Behat\Domain\TicketContext
+                - App\Tests\Behat\Domain\PageLayoutContext
+                - App\Tests\Behat\Domain\RaceEventApprovalContext
+                - App\Tests\Behat\Domain\AffiliateSiteContext
+                - App\Tests\Behat\Domain\LanguagesContext
+                - App\Tests\Behat\Domain\CustomerContext
+                - App\Tests\Behat\Domain\CurrencyExchangeContext
+                - App\Tests\Behat\Domain\AuthContext
+        ui:
+            contexts:
+                - App\Tests\Behat\GraphQl\CatalogContext
+                - App\Tests\Behat\GraphQl\SiteContentContext
+                - App\Tests\Behat\GraphQl\PermissionsContext
+                - App\Tests\Behat\GraphQl\AdminUserContext
+                - App\Tests\Behat\GraphQl\MainSiteContext
+                - App\Tests\Behat\GraphQl\AffiliateSiteContext
+                - App\Tests\Behat\GraphQl\PermissionEditingContext
+                - App\Tests\Behat\GraphQl\EventStatusesContext
+                - App\Tests\Behat\GraphQl\SiteSeriesContext
+                - App\Tests\Behat\GraphQl\SyncContext
+                - App\Tests\Behat\GraphQl\TicketContext
+                - App\Tests\Behat\GraphQl\ImageContext
+                - App\Tests\Behat\GraphQl\PageLayoutContext
+                - App\Tests\Behat\GraphQl\LanguagesContext
+                - App\Tests\Behat\GraphQl\OuterFrameContext
+                - App\Tests\Behat\GraphQl\CurrencyExchangeContext
+                - App\Tests\Behat\GraphQl\CustomersContext
+                - App\Tests\Behat\GraphQl\CarouselContext
+                - App\Tests\Behat\GraphQl\RaceEventApprovalContext
+                - App\Tests\Behat\GraphQl\SeriesContext
+                - App\Tests\Behat\GraphQl\RaceEventContext
+
+    extensions:
+        FriendsOfBehat\SymfonyExtension: ~

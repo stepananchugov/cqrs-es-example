@@ -1,0 +1,40 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Infrastructure\Permissions\Validator;
+
+use App\Infrastructure\Permissions\Configuration;
+use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\ConstraintValidator;
+use Symfony\Component\Validator\Exception\UnexpectedTypeException;
+
+final class RoleIdValidator extends ConstraintValidator
+{
+    private Configuration $configuration;
+
+    public function __construct(Configuration $configuration)
+    {
+        $this->configuration = $configuration;
+    }
+
+    public function validate($value, Constraint $constraint): void
+    {
+        if (!$constraint instanceof RoleId) {
+            throw new UnexpectedTypeException($constraint, RoleId::class);
+        }
+
+        if (null === $value) {
+            return;
+        }
+
+        if (!\is_string($value) || !$this->configuration->hasRole($value)) {
+            $this->context
+                ->buildViolation('Role ID is invalid or does not exist')
+                ->setInvalidValue($value)
+                ->setCode(RoleId::INVALID_ROLE)
+                ->addViolation()
+            ;
+        }
+    }
+}

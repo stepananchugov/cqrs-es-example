@@ -1,0 +1,20 @@
+parameters:
+    autoload_directories:
+        - %rootDir%/../../../migrations
+    excludes_analyse:
+        - %rootDir%/../../../var
+        - %rootDir%/../../../vendor
+        - %rootDir%/../../../tests
+        - %rootDir%/../../../src/Infrastructure/Share/Migrations
+        - %rootDir%/../../../src/Util/Assert
+        - %rootDir%/../../../src/Util/Hydrator
+        - %rootDir%/../../../src/Util/Maker/templates
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    treatPhpDocTypesAsCertain: false
+includes:
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - vendor/phpstan/phpstan-symfony/extension.neon
+    - vendor/phpstan/phpstan-doctrine/extension.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-phpunit/rules.neon

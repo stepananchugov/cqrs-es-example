@@ -1,0 +1,45 @@
+paths:
+  - ./src
+exclude_files:
+  - .*test.*
+layers:
+  - name: Application commands
+    collectors:
+      - type: directory
+        regex: src/Application/Command
+  - name: Projections
+    collectors:
+      - type: directory
+        regex: src/Application/Projection
+  - name: Application queries
+    collectors:
+      - type: directory
+        regex: src/Application/Query
+  - name: Domain
+    collectors:
+      - type: directory
+        regex: src/Domain
+  - name: UI
+    collectors:
+      - type: className
+        regex: .*UI\\.*
+  - name: Infrastructure
+    collectors:
+      - type: directory
+        regex: src/Infrastructure
+ruleset:
+  Application commands:
+    - Domain
+    - Infrastructure
+  Application queries:
+    - Domain
+    - Infrastructure
+  UI:
+    - Domain
+    - Application commands # TODO: Figure out a way to split this
+    - Application queries # TODO: Figure out a way to split this
+  Projections:
+    - Domain
+    - Infrastructure
+  Infrastructure: ~
+  Domain: ~
